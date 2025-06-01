@@ -12,6 +12,7 @@ use std::collections::HashMap;
 use std::fmt::{Debug, Display};
 use std::sync::Arc;
 use std::time::{Duration, SystemTime};
+use std::any::Any;
 
 /// Result type alias for ZkPlug operations
 pub type ZkResult<T, E> = Result<T, E>;
@@ -423,6 +424,8 @@ pub trait ZkPlug: Send + Sync + Debug {
         bincode::deserialize(data)
             .map_err(|e| ZkError::Serialization(e.to_string()).into())
     }
+
+    fn as_any(&self) -> &dyn Any;
 
     // === Lifecycle Management ===
 
