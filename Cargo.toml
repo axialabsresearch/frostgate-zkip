@@ -19,8 +19,6 @@ anyhow = "1.0"
 [features]
 default = ["std"]
 std = [
-    "async-trait/std",
-    "thiserror/std",
     "serde/std",
     "tokio",
     "tracing/std",
