@@ -1,17 +1,27 @@
 [package]
 name = "frostgate-zkip"
-version = "0.1.0"
-edition = "2024"
+version = "1.0.0"
+edition = "2021"
+description = "Zero-Knowledge Interface Protocol - A standardized interface for ZK systems"
+license = "MIT OR Apache-2.0"
 
 [dependencies]
-serde = { workspace = true }
-serde_json = { workspace = true }
-thiserror = { workspace = true }
-anyhow = { workspace = true }
-uuid = { workspace = true }
-hex = { workspace = true }
-async-trait = { workspace = true }
-bincode.workspace = true
-sha2 = "0.10.9"
-tokio.workspace = true
-num_cpus = "1.16.0"
+async-trait = { version = "0.1", default-features = false }
+thiserror = { version = "1.0", default-features = false }
+serde = { version = "1.0", features = ["derive"], default-features = false }
+tokio = { version = "1.0", features = ["full"], optional = true }
+tracing = { version = "0.1", default-features = false }
+
+[dev-dependencies]
+tokio-test = "0.4"
+anyhow = "1.0"
+
+[features]
+default = ["std"]
+std = [
+    "async-trait/std",
+    "thiserror/std",
+    "serde/std",
+    "tokio",
+    "tracing/std",
+]
