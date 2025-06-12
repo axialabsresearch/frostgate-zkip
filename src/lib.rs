@@ -4,9 +4,9 @@
 //! It defines traits and types that allow different ZK backends to be used
 //! interchangeably in applications.
 
-mod backend;
-mod error;
-mod types;
+pub mod backend;
+pub mod error;
+pub mod types;
 
 // Re-export main components
 pub use backend::{ZkBackend, ZkBackendExt};
