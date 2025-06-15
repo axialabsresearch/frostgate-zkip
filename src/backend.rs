@@ -1,3 +1,6 @@
+#![allow(unused_imports)]
+#![allow(unused_variables)]
+
 //! Core ZK backend trait and associated types
 
 use async_trait::async_trait;
